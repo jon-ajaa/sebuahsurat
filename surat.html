@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Neshasauruss 💜💜💜</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #a855f7, #9333ea);
+            color: white;
+            font-family: Poppins, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .box {
+            background: white;
+            color: purple;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            position: relative;
+            z-index: 3;
+            border: 5px solid pink;
+            position: relative;
+        }
+        .box::before, .box::after {
+            content: "❤❤❤❤❤";
+            font-size: 20px;
+            color: pink;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+        }
+        .box::before {
+            top: -30px;
+        }
+        .box::after {
+            bottom: -30px;
+        }
+        .button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            background: #e879f9;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background: #c026d3;
+        }
+        .hidden {
+            display: none;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .heart {
+            font-size: 40px;
+            animation: bounce 1s infinite;
+        }
+        .photo-rain img {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fall linear infinite;
+            clip-path: path("M50 15 Q60 0 70 15 T90 35 A20 20 0 0 1 50 80 A20 20 0 0 1 10 35 Q30 0 50 15 Z");
+        }
+        @keyframes fall {
+            from {
+                transform: translateY(-100vh);
+            }
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="photo-rain"></div>
+    <div class="container">
+        <div id="step1" class="box">
+            <h1>Selamat Datang, Nesha Sayanggg 💜</h1>
+            <p>a little surprise, just for you...</p>
+            <button class="button" onclick="nextStep(2)">OPEN THE LETTER 💌</button>
+        </div>
+
+        <div id="step2" class="box hidden">
+            <h2>To My Love, Nesha 💜</h2>
+            <p>hai sayangku,</p>
+            <p>aku ingin mengungkapkan betapa berartinya kamu dalam hidupku. Setiap detik bersamamu adalah kebahagiaan yang tak tergantikan. kamu adalah sinar dalam hariku, dan hatiku selalu penuh dengan cinta untukmu.</p>
+            <p class="heart">💜</p>
+            <button class="button" onclick="nextStep(3)">Continue 💖</button>
+        </div>
+
+        <div id="step3" class="box hidden">
+            <h2>forever yours till the end 💜</h2>
+            <p>semoga kamu suka surat cintaku ini.</p>
+            <p>i will love you till the end of the worlddd 💜</p>
+            <p>dan selamat idul fitri, mohon maaf lahir dan batin ya sayanggg</p>
+            <p class="heart">💜💜💜💜💜💜</p>
+        </div>
+    </div>
+
+    <script>
+        function nextStep(step) {
+            document.querySelectorAll('.box').forEach(box => box.classList.add('hidden'));
+            document.getElementById('step' + step).classList.remove('hidden');
+        }
+
+        function createPhotoRain() {
+            const photoRain = document.querySelector('.photo-rain');
+            for (let i = 0; i < 15; i++) {
+                let img = document.createElement('img');
+                img.src = 'img/melet.jpg'; // Ganti dengan URL foto Nesha
+                img.style.left = Math.random() * 100 + 'vw';
+                img.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                photoRain.appendChild(img);
+            }
+        }
+
+        createPhotoRain();
+    </script>
+</body>
+</html>
